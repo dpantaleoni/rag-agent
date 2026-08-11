@@ -1,0 +1,56 @@
+# Agentic RAG System Configuration
+
+# LLM Configuration
+llm:
+  # LangChain integration (set to true to use LangChain-based agent)
+  use_langchain: false
+  
+  # Ollama model for agent tasks (synthesis, retrieval)
+  ollama_model: "granite4.1:30b"
+  
+  # llama.cpp model path or identifier
+  llamacpp_model: "unsloth/granite-4.1-30b-GGUF:Q4_K_M"
+  llamacpp_path: "/Users/dominikpantaleoniibm/.cache/huggingface/hub/models--unsloth--granite-4.1-30b-GGUF/snapshots/6cb34f31b11ca4c1433de1af7391dac46de4e666/granite-4.1-30b-Q4_K_M.gguf"
+  llamacpp_n_ctx: 16384
+  llamacpp_n_gpu_layers: -1
+  llamacpp_n_threads: 8
+  llamacpp_use_mlock: true
+  
+  # MLX-LM model configuration (Apple Silicon only)
+  # Can be HuggingFace model ID or local path to MLX model directory
+  mlx_model: "/Users/dominikpantaleoniibm/Documents/dev/models/granite-4.1-30b-nvfp4"
+  mlx_max_tokens: 2000
+  mlx_temp: 0.7
+  
+  # Generation parameters
+  temperature: 0.2  # Low temp for deterministic RAG/factual tasks (0.7 for creative tasks)
+  max_tokens: 2000
+
+# RAG Configuration
+rag:
+  # Database path
+  db_path: "data/vectors.db"
+  
+  # Embedding model (Ollama)
+  embedding_model: "nomic-embed-text"
+  
+  # Chunking parameters
+  chunk_size: 500
+  chunk_overlap: 50
+  
+  # Retrieval parameters
+  top_k: 5
+
+# Podcast Configuration (for future tasks)
+podcast:
+  default_duration: 5  # minutes
+  host_voice: "voices/en_US-lessac-medium.onnx"
+  expert_voice: "voices/en_US-libritts-high.onnx"
+  pause_duration: 300  # milliseconds
+
+# Quiz Configuration (for future tasks)
+quiz:
+  default_questions: 5
+  difficulty: "medium"  # easy, medium, hard
+
+# Made with Bob

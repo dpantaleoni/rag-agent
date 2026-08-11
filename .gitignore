@@ -1,0 +1,36 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# UV
+uv.lock
+
+# Testing
+.pytest_cache/
+
+# macOS
+.DS_Store
+
+# Bob
+.bob/
+
+# Data — vector DB is generated locally by `python main.py ingest`
+data/vectors.db
+
+# Generated outputs — large binary/JSON files produced at runtime
+outputs/
+
+# LLM model files (large binaries, stored outside repo)
+*.gguf
+*.onnx
+voices/
+
+# Local config overrides
+config.local.yaml
